@@ -34,6 +34,10 @@ public class MainActivity extends ActionBarActivity {
     	intent.putExtra(EXTRA_MESSAGE, message);
     	startActivity(intent);
     }
-    
+
+    public void showRecentMatch (View view) {
+    	Intent intent = new Intent(this, ShowMatchActivity.class);
+    	startActivity(intent);
+    }
     
 }

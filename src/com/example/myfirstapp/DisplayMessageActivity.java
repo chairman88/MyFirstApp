@@ -69,7 +69,9 @@ public class DisplayMessageActivity extends Activity {
 
 	private boolean openSearch() {
 		// TODO Auto-generated method stub
+		
 		return true;
+		
 	}
 
 }
