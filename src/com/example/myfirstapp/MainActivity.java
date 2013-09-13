@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -15,6 +16,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textView =  (TextView)findViewById(R.id.s);
+        textView.setText("match");
+
     }
 
 
@@ -37,6 +41,11 @@ public class MainActivity extends ActionBarActivity {
 
     public void showRecentMatch (View view) {
     	Intent intent = new Intent(this, ShowMatchActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void showNextMatch (View view) {
+    	Intent intent = new Intent(this, ShowNextMatchActivity.class);
     	startActivity(intent);
     }
     
