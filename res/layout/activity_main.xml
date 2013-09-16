@@ -38,5 +38,11 @@
         android:layout_alignTop="@id/btnShowRecent"
         android:layout_toRightOf="@id/btnShowRecent"
         android:text="@string/button_show_next"
-        android:onClick="showNextMatch" /> 
+        android:onClick="showNextMatch" />
+     <ListView android:id="@android:id/list"
+    android:layout_width="wrap_content"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:gravity="center_vertical"
+    android:layout_below="@id/btnShowNext"
+/> 
 </RelativeLayout>

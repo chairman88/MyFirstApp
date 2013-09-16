@@ -7,10 +7,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Represents a single note.
- *
- */
+
 public class Match {
 	
 	long id;
@@ -79,9 +76,9 @@ public class Match {
 	static final String ID = "id"; // 
 	static final String MATCHID = "matchid";
 	// SQL statement to create our table
-	public static final String LFCMATCHES_CREATE_TABLE = "CREATE TABLE " + Match.LFCMATCHES_TABLE_NAME + " ("
+	public static final String LFCMATCHES_CREATE_TABLE = "CREATE TABLE " + LFCMATCHES_TABLE_NAME + " ("
 							+ Match.ID + " INTEGER PRIMARY KEY,"
-							+ Match.MATCHID + " TEXT,"
+							+ Match.MATCHID + " TEXT"
 							+ ");";
 	
 }

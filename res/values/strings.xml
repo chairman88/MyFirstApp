@@ -7,6 +7,7 @@
     <string name="liverpool_games">Liverpool Games</string>
     <string name="button_show_recent">Show Recent</string>
     <string name="button_show_next">Show Next</string>
+    <string name="button_save">Save</string>
     <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>

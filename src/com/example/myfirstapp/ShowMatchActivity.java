@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 
 
+import com.example.myfirstapp.DatabaseHelper;
+import com.example.myfirstapp.Match;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -23,10 +26,15 @@ public class ShowMatchActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_match);
-	
+	    
+		
 		new MyTask().execute("http://www.liverpool.no/");
 		
-	        
+		final Match m1 = new Match(match);
+        final DatabaseHelper dbHelper = new DatabaseHelper(this);
+        m1.save(dbHelper);
+
+            
 	    
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
@@ -49,7 +57,7 @@ public class ShowMatchActivity extends Activity {
 				 doc = Jsoup.connect("http://www.liverpool.no/").userAgent("Mozilla/5.0 (Linux; U; Android 2.2; en-gb; GT-P1000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1").get();
 				 Element content = doc.select(".lfcMatches").first();		
 				 match = content.text();
-              } catch (IOException e) {
+              } catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -67,6 +75,7 @@ public class ShowMatchActivity extends Activity {
 
 			e.printStackTrace();
 		}
+
 		}
 		
 	}

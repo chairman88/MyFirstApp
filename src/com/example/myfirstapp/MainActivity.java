@@ -1,26 +1,41 @@
 package com.example.myfirstapp;
 
+
+import com.example.myfirstapp.Match;
+import com.example.myfirstapp.DatabaseHelper;
+
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ListActivity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textView =  (TextView)findViewById(R.id.s);
-        textView.setText("match");
-
+        
+        
     }
-
+    
+    public void onResume() {
+    	super.onResume();
+    	setListAdapter(
+        		new ArrayAdapter<Match>(this,
+        				android.R.layout.simple_list_item_1,
+        				Match.getAll(new DatabaseHelper(this))));
+               
+    }
+    
+   
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,5 +63,6 @@ public class MainActivity extends ActionBarActivity {
     	Intent intent = new Intent(this, ShowNextMatchActivity.class);
     	startActivity(intent);
     }
+    
     
 }
